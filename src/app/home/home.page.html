@@ -3,35 +3,44 @@
     <ion-title>
       DIVPIZZA - inicio
     </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button  [routerLink]="['/add-pizza']">
+        <ion-icon name='add'></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="ion-padding">
     The world is your oyster.
-   <ion-searchbar></ion-searchbar>
-   <br/>
-   <br/>
-   <ion-card>
-           <img src="../assets/pizza1.jpg">
+    <ion-searchbar></ion-searchbar>
+    <br />
+    <br />
+    <div *ngIf="catalogo !== undefined && catalogo.length > 0">
+      <div *ngFor="let pizza of catalogo">
+        <ion-card>
+          <img src="../assets/pizza1.jpg" />
           <ion-card-content>
-        <ion-card-title>
-          Queijo maluco gourmet
-        </ion-card-title>
-        <ion-card-subtitle>
-          Queijo, catupiry,
-           batata palha, cogumelos,
-           manjerição e ,mais uma
-           colher de caviar
-        </ion-card-subtitle>
-        <br/>
-        <br/>
-        <ion-button color='danger'>
-          <ion-icon name='cart'slot='start'>
-          </ion-icon>
-          Comprar
-        </ion-button>
-      </ion-card-content>
-   </ion-card>
+            <ion-card-title>
+              {{pizza.nome}}
+            </ion-card-title>
+            <ion-card-subtitle>
+              <div>
+                <h1 text-right>{{pizza.preco}}</h1>
+              </div>
+
+              <div text-center="ion-margin-top">
+                <ion-button color='danger' expand="block">
+                  <ion-icon name='cart' slot='start'></ion-icon>comprar
+                </ion-button>
+              </div>
+              {{pizza.descricao}}
+            </ion-card-subtitle>
+          </ion-card-content>
+        </ion-card>
+      </div>
+
+    </div>
   </div>
 </ion-content>
