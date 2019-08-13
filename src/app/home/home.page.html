@@ -13,7 +13,6 @@
 
 <ion-content>
   <div class="ion-padding">
-    The world is your oyster.
     <ion-searchbar></ion-searchbar>
     <br />
     <br />
@@ -23,19 +22,19 @@
           <img src="../assets/pizza1.jpg" />
           <ion-card-content>
             <ion-card-title>
-              {{pizza.nome}}
+              {{pizza.nomePizza}}
             </ion-card-title>
             <ion-card-subtitle>
               <div>
-                <h1 text-right>{{pizza.preco}}</h1>
+                <h1 text-right>{{pizza.precoPizza}}</h1>
               </div>
 
+              {{pizza.descricaoPizza}}
               <div text-center="ion-margin-top">
                 <ion-button color='danger' expand="block">
                   <ion-icon name='cart' slot='start'></ion-icon>comprar
                 </ion-button>
-              </div>
-              {{pizza.descricao}}
+              </div>       
             </ion-card-subtitle>
           </ion-card-content>
         </ion-card>
