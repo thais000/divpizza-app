@@ -4,8 +4,11 @@
       DIVPIZZA - inicio
     </ion-title>
     <ion-buttons slot="primary">
+      <!--posiciona o botao de + -->
       <ion-button [routerLink]="['/add-pizza']">
+        <!--link com a propri apagina-->
         <ion-icon name='add'></ion-icon>
+        <!--cria o botao de +-->
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -44,7 +47,14 @@
           </ion-card-content>
         </ion-card>
       </div>
-
+    </div>
+    <div *ngIf="catalogo.length == 0">
+      <ion-card class="card-transparente">
+        <img src="../assets/nao-tem-pizza.png" />
+        <ion-card-title>
+          Não há pizza no momento.
+        </ion-card-title>
+      </ion-card>
     </div>
   </div>
 </ion-content>

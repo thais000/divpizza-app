@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button>
+        <ion-back-button> </ion-back-button>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{nomePizza}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #form="ngForm" (ngSubmit)="editar(form)">
+    <ion-item>
+      <ion-label position="floating">Nome da pizza </ion-label>
+      <ion-input type="text" name="nomePizza" value="{{nomePizza}}" ngModel></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">descrição </ion-label>
+      <ion-textarea type="text" name="descricaoPizza" value="{{descricaoPizza}}" ngModel></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">preço </ion-label>
+      <ion-input type="text" name="precoPizza" value="{{precoPizza}}" ngModel></ion-input>
+    </ion-item>
+
+    <br />
+    <br />
+    <ion-button expand="block" type="submit">salvar</ion-button>
+
+  </form>
+</ion-content>

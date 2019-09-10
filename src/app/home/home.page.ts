@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { ActionSheetController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +10,7 @@ import { ActionSheetController } from '@ionic/angular';
 export class HomePage {
   catalogo: Array<Object> = []
 
-  constructor(private menu: ActionSheetController) {
+  constructor(private menu: ActionSheetController, private route:Router) {
 
   }
 
@@ -21,6 +21,7 @@ export class HomePage {
 
   listarCatalogo() {
     this.catalogo = []
+    //para dizer que ele está chamando uma função desta class
     const tamanhoDoBanco = localStorage.length
     for (let i = 0; i < tamanhoDoBanco; i++) {
       const chaveAtual = localStorage.key(i)
@@ -37,7 +38,10 @@ export class HomePage {
       header: "Opções da pizza n° " + id,
       buttons: [{
         text: "Editar pizza",
-        icon: "create"
+        icon: "create",
+        handler: () =>{
+          this.route.navigate(['edit-pizza',id])
+        }
       }, {
         text: "Excluir pizza",
         icon: "trash",
