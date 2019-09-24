@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class HomePage {
   catalogo: Array<Object> = []
 
-  constructor(private menu: ActionSheetController, private route:Router) {
+  constructor(private menu: ActionSheetController, private route: Router) {
 
   }
 
@@ -39,16 +39,16 @@ export class HomePage {
       buttons: [{
         text: "Editar pizza",
         icon: "create",
-        handler: () =>{
-          this.route.navigate(['edit-pizza',id])
+        handler: () => {
+          this.route.navigate(['edit-pizza', id])
         }
       }, {
         text: "Excluir pizza",
         icon: "trash",
-       handler: ()=> {
-        console.log("clicou em Excluir")
-        localStorage.removeItem(id)
-        this.listarCatalogo()
+        handler: () => {
+          console.log("clicou em Excluir")
+          localStorage.removeItem(id)
+          this.listarCatalogo()
         }
       }]
 
@@ -56,4 +56,9 @@ export class HomePage {
 
     criacaoMenu.present()
   }
+  comprar(id) {
+    console.log(id)
+    this.route.navigate(['comprar-pizza',id])
+  }
+
 }

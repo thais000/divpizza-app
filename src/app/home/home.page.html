@@ -39,7 +39,7 @@
 
               {{pizza.descricaoPizza}}
               <div text-center="ion-margin-top">
-                <ion-button color='danger' expand="block">
+                <ion-button color='danger' expand="block"(click)="comprar(pizza.id)">
                   <ion-icon name='cart' slot='start'></ion-icon>comprar
                 </ion-button>
               </div>
